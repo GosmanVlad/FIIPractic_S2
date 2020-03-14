@@ -1,3 +1,6 @@
+<?php
+    $currentPage = 'about';
+?>
 <html>
     <head>
         <title>About us</title>

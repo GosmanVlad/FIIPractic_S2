@@ -16,6 +16,10 @@
 .navbar-item a {
     text-decoration: none;
 }
+.navbar-item--selected {
+    background-color: blueviolet;
+}
+
 #home {
     background-color: red;
 }

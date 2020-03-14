@@ -1,3 +1,6 @@
+<?php
+    $currentPage = 'contact';
+?>
 <html>
     <head>
         <title>Contact Us</title>

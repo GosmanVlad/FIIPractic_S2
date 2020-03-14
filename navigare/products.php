@@ -1,3 +1,6 @@
+<?php
+    $currentPage = 'products';
+?>
 <html>
     <head>
         <title>Products</title>

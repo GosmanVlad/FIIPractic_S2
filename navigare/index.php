@@ -1,3 +1,6 @@
+<?php
+    $currentPage = 'index';
+?>
 <html>
     <head>
         <title>Index</title>
