@@ -1,24 +1,14 @@
 <?php
+include __DIR__ . '/helpers.php';
+
 session_start();
 if (isset($_SESSION['login']) && $_SESSION['login'] === 1) {
     header('Location: dashboard.php');
 }
 
-$lang = 'ro';
-if (isset($_COOKIE['language'])) {
-    $lang = $_COOKIE['language'];
-}
-
-$language = '';
-if ($lang === 'ro') {
-    $language = 'Limba:';
-} else {
-    $language = 'Language:';
-}
-
 ?>
 
-<p><?php echo $language; ?></p>
+<p><?php echo getLanguageTrans(); ?></p>
 <a href="change-lang.php?lang=en">En</a>
 <a href="change-lang.php?lang=ro">Ro</a>
 
