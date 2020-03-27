@@ -29,25 +29,25 @@ class Product {
         return $this->image;
     }
 
-    function printPrice() {
-        $lang = 'en';
-        if (isset($_COOKIE['lang'])) {
-            $lang = $_COOKIE['lang'];
-        }
+    // function printPrice() {
+    //     $lang = 'en';
+    //     if (isset($_COOKIE['lang'])) {
+    //         $lang = $_COOKIE['lang'];
+    //     }
 
-        $price = $this->price . ' ';
+    //     $price = $this->price . ' ';
 
-        switch($lang) {
-            case 'en': 
-                $price = $price . '$';
-                break;
-            case 'ro':
-                $price = $price . 'RON';
-                break;
-            default:
-                $price = $price . '$';
-        }
+    //     switch($lang) {
+    //         case 'en': 
+    //             $price = $price . '$';
+    //             break;
+    //         case 'ro':
+    //             $price = $price . 'RON';
+    //             break;
+    //         default:
+    //             $price = $price . '$';
+    //     }
 
-        return $price;
-    }
+    //     return $price;
+    // }
 }

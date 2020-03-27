@@ -1,6 +1,6 @@
 <?php
 
-include __DIR__ . '/../services/init.php';
+// include __DIR__ . '/../services/init.php';
 
 if (isset($_POST['lang'])) {
     $lang = $_POST['lang'];

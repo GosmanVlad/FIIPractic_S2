@@ -21,7 +21,7 @@ if (isset($_POST['id'])) {
     
 }
 
-header('Location: cart.php');
+header('Location: cart');
 
 
 

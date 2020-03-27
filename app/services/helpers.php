@@ -1,13 +1,33 @@
 <?php
 
-function getProductById($products, $id) {
-    foreach($products as $product) {
-        if ($product->getId() === intval($id)) {
-            return $product;
-        }
+function printPrice($price) {
+    $lang = 'en';
+    if (isset($_COOKIE['lang'])) {
+        $lang = $_COOKIE['lang'];
     }
-    return null;
+
+    switch($lang) {
+        case 'en': 
+            $price = $price . '$';
+            break;
+        case 'ro':
+            $price = $price . 'RON';
+            break;
+        default:
+            $price = $price . '$';
+    }
+
+    return $price;
 }
+
+// function getProductById($products, $id) {
+//     foreach($products as $product) {
+//         if ($product->getId() === intval($id)) {
+//             return $product;
+//         }
+//     }
+//     return null;
+// }
 
 function printSession() {
     echo '<hr>';
@@ -26,7 +46,7 @@ function printCookies() {
 }
 
 function buildLangForm($lang) {
-    echo '<form action="change-lang.php" method="POST">';
+    echo '<form action="change-lang" method="POST">';
     echo '<input type="hidden" name="lang" value="'.$lang.'">';
     echo '<button type="submit">' . $lang . '</button>';
     echo '</form>';

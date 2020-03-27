@@ -1,5 +1,6 @@
 <?php
     include __DIR__ . '/../services/init.php';
+    include __DIR__ . '/../services/mysql.php';
 ?>
 <html>
     <head>
@@ -16,7 +17,7 @@
         </style>
     </head>
     <body>
-        <a href="index.php">Vezi produsele</a>
+        <a href="<?php echo ''.URL.'' ?>">Vezi produsele</a>
         <h1> Cos de cumparaturi: </h1>
         <?php
         $cart = [];
@@ -24,18 +25,24 @@
             $cart = $_SESSION['cart'];
         }
         foreach($cart as $item) {
-            $product = getProductById($products, $item);
+            $cart = $conn->prepare("SELECT * FROM products WHERE id = '$item'");
+            $cart->setFetchMode(PDO::FETCH_ASSOC);
+            $cart->fetchAll();
+            $cart->execute();
+            
+            foreach($cart as $row) {
         ?>
             <div class="product__container">
-                <img class="product__image" src="<?php echo $product->getImage(); ?>" />
-                <p><?php echo $product->getName(); ?> </p>
-                <p>Pret: <?php echo $product->printPrice(); ?> </p>
-                <form action="remove-from-cart.php" method="POST">
-                    <input type="hidden" name="id" value="<?php echo $product->getId(); ?>" />
+                <img class="product__image" src="<?php echo $row['image']; ?>" />
+                <p><?php echo $row['name']; ?> </p>
+                <p>Pret: <?php echo $row['price']; ?> </p>
+                <form action="remove-from-cart" method="POST">
+                    <input type="hidden" name="id" value="<?php echo $row['id']; ?>" />
                     <button type="submit">Remove from cart</button>
                 </form>
             </div>
         <?php
+        }
         }
         ?>
 

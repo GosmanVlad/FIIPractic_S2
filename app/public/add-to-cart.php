@@ -16,7 +16,7 @@ if (isset($_POST['id'])) {
     
 }
 
-header('Location: index.php');
+header('Location: '.URL.'');
 
 
 
